@@ -1,0 +1,103 @@
+4.1.1.
+Wyniki wskazują, że przy niskich wartościach λ poziom strat był minimalny. W miarę wzro-
+stu λ, system zaczął doświadczać większych obciążeń, co prowadziło do wzrostu ilości straconych
+ramek. Analiza wyników wskazuje na wyraźną korelację między wzrostem intensywności ruchu a
+zwiększonym poziomem strat, szczególnie przy wyższych wartościach λ, która została przedsta-
+wiona na wykresie 4.1. Dłuższy czas obsługi ramek prowadził do zwiększenia poziomu strat przy
+identycznych wartościach λ. Wynika to z faktu, że czas obsługi w systemie z λobs = 0, 001 jest
+średnio dłuższy niż w systemie z λobs = 0, 1, co przekłada się na mniejszą intensywnosć obsługi,
+tym samym dłuższy czas przetwarzania ramek i ich usunięcie z buforów wejściowych.
+Zależność ta znajduje odzwierciedlenie w modelach teoretycznych, w których zmniejszenie inten-
+sywności strumienia obsługi bezpośrednia wpływa na wzrost prawdopodobieństwa strat w systemie
+
+4.1.2 (CONSTANT)
+Przy niskiej wartości stałej wynoszącej od 0 do 10 poziom strat ramek był największy wynosząc
+ponad 90%. Mała wartość constant oznaczała, że ramki były generowane bardzo często, co prowa-
+dziło do szybkiego zapełniania się buforów. Wraz ze zwiększaniem się parametru constant, poziom
+strat malał, aż osiągnął poziom blisko 0 przy constant równym 1500. Na rysunku 4.3 przedstawiony
+został wykres tego zdarzenia.
+Mimo zmiany źródła losowości widoczna jest ta sama zależność, w której spadek odstępów
+czasu między napływem kolejnych ramek wpływa na wzrost strat w systemie. Wyniki te można
+porównać ze strumieniem ramek modelowanym wykładniczo przyjmując wartość constant jako od-
+powiadający wartości oczekiwanej rozkładu wykładniczego 1
+λ [25]. Przy takiej interpretacji można
+zauważyć, że wyniki dla ruchu opisanego wartością stałą są zbieżne względem ruchu opisanego
+procesem Poissona.
+Należy zwrócić uwagę na istotną różnicę pomiędzy rysunkami 4.3 oraz 4.1 i 4.1.1. Przedstawienie
+na rysunkach 4.1 i 4.1.1 bezpośrednio wartości λ powoduje to, że zależność jest odwrócona w
+osi odciętych względem 4.3. Aby zatem mówić o odstępie czasowym między ramkami należałoby
+znormalizować 4.1 i 4.1.1 np. poprzez umieszczenie na osi x wartości oczekiwanej wyrażanej jako
+
+4.2 WIELKOŚC RAMKI
+Symulacje wykazują, że rozmiar ramki ma marginalny wpływ na poziom strat w systemie. Małe
+ramki są przetwarzane efektywniej, co prowadzi do mniejszych strat, podczas gdy większe ramki
+powodują zwiększone obciążenie systemu i wyższe poziomy strat. Różnice te są jednak stosunkowo
+niewielkie i w niektórych przebiegach mieszczą się nawet w graniach błędu statystycznego. Biorąc
+pod uwagę, że system interpretowany jest jako jednoklasowy można założyć, że na poziom strat
+w tym badaniu wpływ ma wyłącznie czas obsługi, który zgodnie z przyjętym sposobem działania
+symulatora zależny jest od długości ramki, co omówiono szczegółowo w rozmiarze 3.
+
+4.3 BUFOR
+Większe bufory pozwalają na przechowywanie większej liczby ramek przed ich przetworzeniem,
+co zmniejsza prawdopodobieństwo strat nadchodzących zgłoszeń. Analogicznie mniejsze bufory
+szybciej się zapełniają co prowadzi do większych strat ramek, szczególnie przy wyższej intensyw-
+ności ruchu.
+W ogólnym przypadku poziom strat gwałtownie maleje wraz ze wzrostem wielkości bufora. Już
+przy kilkukrotnym zwiększeniu wielkości bufora poziom strat spada kilkukrotnie. Przy zastoso-
+waniu dostatecznie dużego bufora poziom strat dąży do zera. Zjawisko to znajduje uzasadnienie
+teoretyczne. Zwiększenie kolejki zgłoszeń w systemach takich jak model Erlanga z opóźnieniem
+pozwala zmniejszyć poziom strat przy zachowaniu bez zmian pozostałych parametrów systemu.
+Bufor, stanowiący w rozumieniu takiego systemu kolejkę zgłoszeń, pozwala przyjmować do sys-
+temu kolejne zgłoszenia, które oczekują na obsługę. Przy odpowiednio długiej kolejce względem
+intensywności ruchu prawdopodobieństwo strat może zostać zminimalizowane [21].
+W niektórych przypadkach jak na rysunku 4.7 zauważalny jest obszar, w którym poziom strat
+jest zbliżony niezależnie od zmian wielkości bufora. Analogiczna sytuacja widoczna jest na ry-
+sunkach 4.9 oraz 4.10. Sugeruje to, że w pewnym zakresie rozmiar bufora nie wpływu na poziom
+strat przy danej intensywności ruchu. W przypadkach takich jak na rysunku 4.8 poziom strat ma-
+leje proporcjonalnie do wzrostu rozmiaru bufora. Odchylenie widoczne jest jedynie na końcu tej
+zależności.
+Symulacje wykazują, że wielkość bufora ma istotny wpływ na poziom strat ramek zwłaszcza
+w kontekście różnych czasów obsługi ramek. Dłuższy czas obsługi pozwala na skuteczniejsze wy-
+korzystanie mniejszych buforów, podczas gdy krótszy czas obsługi wymaga znacznie większych
+buforów, aby osiągnąć podobne poziomy strat.
+
+4.4 RUCH ROZGŁOSZENIOWY
+Wzrost procentu ruchu rozgłoszeniowego ma istotny wpływ na poziom strat w systemie. Wraz
+ze wzrostem udziału ruchu rozgłoszeniowego, poziom strat ramek znacząco wzrasta. Ruch roz-
+głoszeniowy musi zostać przekazany na każdy z interfejsów z wyłączeniem interfejsu źródłowego,
+co przekłada się na znaczące obciążenie całego systemu. Minimalizacja ruchu rozgłoszeniowego
+jest kluczowa dla utrzymania niskiego poziomu strat i wydajności przełącznika. Charakterystyka
+wzrostu jest porównywalna dla różnych poziomów intensywności ruchu. Warto odnotować, że dla
+większej intensywności poziom strat wzrasta szybciej, co wynika z samej ilości napływających
+zgłoszeń.
+Niski poziom ruchu rozgłoszeniowego pozwala na efektywne przetwarzanie ramek z minimal-
+nymi stratami, podczas gdy wysoki poziom ruchu rozgłoszeniowego prowadzi do znaczącego ob-
+ciążenia systemu. Wyniki te potwierdzają dobrze znane praktyki sieciowe, w których dąży się do
+ograniczania rozmiaru domen rozgłoszeniowych jak również samej ilości rozsyłanych ramek roz-
+głoszeniowych [17]. Zmniejszenie ilości ruchu rozgłoszeniowego w sieci lokalnej pozwala znacząco
+poprawić wydajność przełącznika zarówno w formie modelu matematycznego jak i w rzeczywistych
+urządzeniach
+
+4.5. ROZMIAR CAM
+Wyniki symulacji wskazują ścisły związek między rozmiarem tablicy CAM a poziomem strat
+w systemie. Większy rozmiar tablicy CAM przekłada się na mniejsze straty ramek w systemie,
+zaś większa tablica CAM zmniejsza poziom strat. Zależność ta jest bezpośrednim następstwem
+sposobu działania przełącznika warstwy drugiej. Zmniejszenie rozmiaru tablicy CAM ogranicza
+maksymalną liczbę adresów jakie może zapamiętać przełącznik, a ruch z niezapisanych adresów
+przesyłany jest rozgłoszeniowo [17]. Tym samym rozmiar tablicy CAM wpływa na ilość ruchu
+rozgłoszeniowego i pośrednio na wzrost strat w systemie. Można przyjąć założenie, że poziom
+strat dla danych rozmiarów tablicy CAM odpowiadał będzie ogólnej ilości ruchu rozgłoszenioweg.
+
+4.6 MAC FLOODING
+Wielkość tablicy CAM ma istotny wpływ na poziom strat ramek. Im większy rozmiar tablicy
+CAM, tym mniejsze straty ramek dla tego samego czasu życia. Małe tablice CAM wykazują wyższe
+straty ramek przy każdej wartości TTL, podczas gdy duże tablice CAM mają znacznie niższe straty
+ramek, szczególnie przy niższych wartościach TTL. Krótszy czas życia powoduje większe straty,
+szczególnie w mniejszych tablicach CAM. Zwiększenie TTL do 250 zmniejsza straty, ale ten efekt
+jest bardziej widoczny w większych tablicach CAM.
+Analizowany przypadek pozwala stwierdzić, że wartość TTL musi zostać zoptymalizowana pod
+kątem minimalizacji strat w realiach ataku na tablicę CAM. Zbyt mała wartość TTL powoduje,
+że do tablicy regularnie napływają nowe, fałszywe wpisy z losowych adresów; z kolei zbyt duża
+wartość TTL sprawia, że fałszywe wpisy utrzymują się w tablicy przez długi okres czasu nawet jeśli
+nie napływą ramki, które je zawierają. Parametr ten należy zatem wypośrodkować na podstawie
+dalszych doświadczeń.
