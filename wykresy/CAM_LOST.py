@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Przykładowe dane - punkty i przedziały ufności
-x_values = np.array([1,2,3,4,5,6,7,8,9,10,12,15,18,20])
-y_values = np.array([93.7278,93.02346667,92.1088,90.83073333,89.10933333,86.52733333,82.54633333,75.671,75.6564,75.6473,75.69363333,75.6536,75.6241,75.6321
+x_values = np.array([1,2,3,4,5,6,7,8])
+y_values = np.array([93.7278,93.02346667,92.1088,90.83073333,89.10933333,86.52733333,82.54633333,75.671
 
 
 

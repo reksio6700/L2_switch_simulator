@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Przykładowe dane - punkty i przedziały ufności
-x_values = np.array([0.0005,0.0007,0.001,0.0012,0.0015,0.002,0.0025,0.003,0.0035,0.004,0.0045,0.005])
-y_values = np.array([0.21929,2.12308,12.41878,21.6918,34.0798,48.3298,57.4485,63.5878,67.9751,71.2136,73.7663,75.7655
+x_values = np.array([0,10,100,300,500,750,1000,1250,1500])
+y_values = np.array([94.11966,93.19958,84.93296,66.55869,48.20678,25.49616,8.23661,1.30581,0.10688
 
 ])
 
@@ -22,10 +22,10 @@ plt.scatter(x_values, y_values)
             # fmt='none', ecolor='gray', capsize=5, capthick=2)
 
 # Dodanie etykiet i legendy
-plt.xlabel('Wartość parametru Lambda')
+plt.xlabel('Wartość CONSTANT')
 plt.ylabel('Strata %')
-plt.title('Strata ramek w zależności od parametru Lambda')
-plt.xscale('log')
+plt.title('Strata ramek w zależności od wartości CONSTANT')
+
 
 plt.legend()
 

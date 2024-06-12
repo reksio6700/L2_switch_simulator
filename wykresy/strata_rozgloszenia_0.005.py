@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+from matplotlib.ticker import FuncFormatter, LogLocator
 # Przykładowe dane - punkty i przedziały ufności
-x_values = np.array([0.0005,0.0007,0.001,0.0012,0.0015,0.002,0.0025,0.003,0.0035,0.004,0.0045,0.005])
-y_values = np.array([0.21929,2.12308,12.41878,21.6918,34.0798,48.3298,57.4485,63.5878,67.9751,71.2136,73.7663,75.7655
+x_values = np.array([0,5,15,30,50,75,85,95,100])
+y_values = np.array([71.79279,74.97959,81.79834,87.099,90.92123,93.65478,94.2,94.512,94.68194
+
 
 ])
 
@@ -22,10 +23,14 @@ plt.scatter(x_values, y_values)
             # fmt='none', ecolor='gray', capsize=5, capthick=2)
 
 # Dodanie etykiet i legendy
-plt.xlabel('Wartość parametru Lambda')
-plt.ylabel('Strata %')
-plt.title('Strata ramek w zależności od parametru Lambda')
-plt.xscale('log')
+plt.xlabel('Ruch rozgłoszeniowy [%]')
+plt.ylabel('Strata ramek [%]')
+formatter = FuncFormatter(lambda y, _: '{:.0f}%'.format(y))
+plt.gca().yaxis.set_major_formatter(formatter)
+
+for x, y in zip(x_values, y_values):
+    plt.text(x, y, '{:.2f}%'.format(y), fontsize=9, ha='right')
+
 
 plt.legend()
 
