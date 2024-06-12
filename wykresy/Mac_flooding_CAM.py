@@ -27,13 +27,23 @@ plt.scatter(x_values, y_values_32,label='CAM SIZE= 32')
 # Dodanie etykiet i legendy
 plt.xlabel('CAM TTL')
 plt.ylabel('Strata ramek [%]')
+text_offset = 0
+for x, y in zip(x_values, y_values_4):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=7, ha='center')
 
+for x, y in zip(x_values, y_values_8):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=7, ha='center')
+for x, y in zip(x_values, y_values_16):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=7, ha='center')
+
+#plt.yscale('log')
+plt.legend()
 #formatter = FuncFormatter(lambda y, _: '{:.0f}%'.format(y))
 #plt.gca().yaxis.set_major_formatter(formatter)
 #text_offset = 0.2
 #for x, y in zip(x_values, y_values):
     #plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=6, ha='center')
-plt.yscale('log')
+
 plt.legend()
 
 # Wyświetlanie wykresu

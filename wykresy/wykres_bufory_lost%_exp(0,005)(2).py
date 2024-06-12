@@ -3,7 +3,8 @@ import numpy as np
 
 # Przykładowe dane - punkty i przedziały ufności
 x_values = np.array([1,10,15,20,25,30,35,40])
-y_values = np.array([97.59988,68.3489,51.79046667,35.20173333,19.76143333,7.32701,7.288166667,0.116633333
+y_values = np.array([97.59988,68.3489,51.79046667,35.20173333,19.76143333,7.32701,1.44126
+,0.116633333
 ])
 
 # Przykładowe przedziały ufności (dolne i górne wartości)
@@ -19,12 +20,16 @@ plt.scatter(x_values, y_values)
 # Rysowanie przedziałów ufności
 #plt.errorbar(x_values, y_values, yerr=[y_values - lower_confidence_interval, upper_confidence_interval - y_values],
             # fmt='none', ecolor='gray', capsize=5, capthick=2)
+text_offset = 0.05
+for x, y in zip(x_values, y_values):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=7, ha='center')
+
 
 # Dodanie etykiet i legendy
 plt.xlabel('Wielkość bufora')
 plt.ylabel('Strata %')
-plt.title('Strata ramek w zależności od wielkości bufora dla Lambda = 0.005')
-#plt.xscale('log')
+#plt.title('Strata ramek w zależności od wielkości bufora dla Lambda = 0.005')
+plt.yscale('log')
 
 plt.legend()
 

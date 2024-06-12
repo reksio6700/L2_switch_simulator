@@ -21,11 +21,16 @@ plt.scatter(x_values, y_values)
 # Rysowanie przedziałów ufności
 #plt.errorbar(x_values, y_values, yerr=[y_values - lower_confidence_interval, upper_confidence_interval - y_values],
             # fmt='none', ecolor='gray', capsize=5, capthick=2)
+text_offset = 0.01
+for x, y in zip(x_values, y_values):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=7, ha='center')
+plt.yscale('log')
+plt.legend()
 
 # Dodanie etykiet i legendy
-plt.xlabel('Wartość parametru Lambda')
+plt.xlabel('Wartość parametru λ')
 plt.ylabel('Strata %')
-plt.title('Strata ramek w zależności od parametru Lambda')
+#plt.title('Strata ramek w zależności od parametru Lambda')
 #plt.xscale('log')
 
 plt.legend()

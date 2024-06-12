@@ -20,11 +20,16 @@ plt.scatter(x_values, y_values)
 # Rysowanie przedziałów ufności
 #plt.errorbar(x_values, y_values, yerr=[y_values - lower_confidence_interval, upper_confidence_interval - y_values],
             # fmt='none', ecolor='gray', capsize=5, capthick=2)
-
+text_offset = 0.08
+for x, y in zip(x_values, y_values):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=6, ha='center')
+plt.yscale('log')
+plt.xscale('log')
 # Dodanie etykiet i legendy
 plt.xlabel('Wartość CONSTANT')
 plt.ylabel('Strata %')
-plt.title('Strata ramek w zależności od wartości CONSTANT')
+
+#plt.title('Strata ramek w zależności od wartości CONSTANT')
 
 
 plt.legend()

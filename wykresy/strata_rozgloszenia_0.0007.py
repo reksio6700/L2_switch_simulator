@@ -27,9 +27,9 @@ plt.ylabel('Strata ramek [%]')
 
 #formatter = FuncFormatter(lambda y, _: '{:.0f}%'.format(y))
 #plt.gca().yaxis.set_major_formatter(formatter)
-#text_offset = 0.2
-#for x, y in zip(x_values, y_values):
-    #plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=6, ha='center')
+text_offset = 0.5
+for x, y in zip(x_values, y_values):
+    plt.text(x, y+text_offset , '{:.2f}%'.format(y), fontsize=6, ha='center')
 plt.yscale('log')
 plt.legend()
 
